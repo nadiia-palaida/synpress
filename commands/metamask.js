@@ -183,6 +183,16 @@ const metamask = {
       );
     }
 
+    // Closes "Recovery phrase" popup.
+    if (
+      (await playwright
+        .metamaskWindow()
+        .locator(recipientPopupElements.recoveryPhraseButton)
+        .count()) > 0
+    ) {
+      await playwright.waitAndClick(recipientPopupElements.recoveryPhraseButton);
+    }
+
     // Closes "You have switched to [network]" popup.
     // It appears if you connect to a new network for the first time.
     if (

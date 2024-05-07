@@ -54,11 +54,14 @@ const popupContainer = '.popover-container';
 const popupCloseButton = `${popupContainer} .popover-header__button`;
 const popupCopyRecipientPublicAddressButton = `${popupContainer} .nickname-popover__public-address button`;
 const recipientPublicAddress = `${popupContainer} .nickname-popover__public-address__constant`;
+const recoveryPhraseButton = `${popupContainer} .recovery-phrase-reminder button.btn-primary`;
+
 module.exports.recipientPopupElements = {
   popupContainer,
   popupCloseButton,
   popupCopyRecipientPublicAddressButton,
   recipientPublicAddress,
+  recoveryPhraseButton
 };
 
 const confirmPageHeader = `${notificationPage} .confirm-page-container-header`;
