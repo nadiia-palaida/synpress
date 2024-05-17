@@ -159,7 +159,7 @@ const metamask = {
       const popupBackgrounds = playwright
         .metamaskWindow()
         .locator(mainPageElements.popup.background).all();
-        if((await popupBackground.count()) > 0) {
+        if((await popupBackgrounds.count()) > 0) {
           for (let i = 0; i < popupBackgrounds.length; i++) {
             const popupBackgroundBox = await popupBackgrounds[i].boundingBox();
             await playwright
