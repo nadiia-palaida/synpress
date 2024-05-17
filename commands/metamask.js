@@ -156,13 +156,17 @@ const metamask = {
         .locator(mainPageElements.popup.container)
         .count()) > 0
     ) {
-      const popupBackground = playwright
+      const popupBackgrounds = playwright
         .metamaskWindow()
-        .locator(mainPageElements.popup.background);
-      const popupBackgroundBox = await popupBackground.boundingBox();
-      await playwright
-        .metamaskWindow()
-        .mouse.click(popupBackgroundBox.x + 1, popupBackgroundBox.y + 1);
+        .locator(mainPageElements.popup.background).getAll();
+        if((await popupBackground.count()) > 0) {
+          for (let i = 0; i < popupBackgrounds.length; i++) {
+            const popupBackgroundBox = await popupBackgrounds[i].boundingBox();
+            await playwright
+                .metamaskWindow()
+                .mouse.click(popupBackgroundBox.x + 1, popupBackgroundBox.y + 1);
+          }
+        }
     }
     if (
       (await playwright
